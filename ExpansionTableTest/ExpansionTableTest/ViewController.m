@@ -203,7 +203,8 @@
     }
     
     [cell.textLabel setText:item];
-    
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+
     return cell;
 }
 

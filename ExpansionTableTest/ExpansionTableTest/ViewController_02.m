@@ -207,6 +207,7 @@
     }
     
     [cell.textLabel setText:item];
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     return cell;
 }
@@ -239,7 +240,7 @@
                 }
                 
                 [CATransaction begin];
-                [tableView deleteRowsAtIndexPaths:deleteArray withRowAnimation:UITableViewRowAnimationTop];
+                [tableView deleteRowsAtIndexPaths:deleteArray withRowAnimation:UITableViewRowAnimationAutomatic];
                 [showSpeakerlistBtn.imageView setTransform:CGAffineTransformMakeRotation(M_PI)];
                 [CATransaction commit];
                 
@@ -258,7 +259,7 @@
                 }
                 
                 [CATransaction begin];
-                [tableView insertRowsAtIndexPaths:insertArray withRowAnimation:UITableViewRowAnimationBottom];
+                [tableView insertRowsAtIndexPaths:insertArray withRowAnimation:UITableViewRowAnimationAutomatic];
                 [showSpeakerlistBtn.imageView setTransform:CGAffineTransformIdentity];
                 [CATransaction commit];
             }
@@ -292,7 +293,7 @@
             }
             
             [CATransaction begin];
-            [devicelistTableView deleteRowsAtIndexPaths:deleteArray withRowAnimation:UITableViewRowAnimationTop];
+            [devicelistTableView deleteRowsAtIndexPaths:deleteArray withRowAnimation:UITableViewRowAnimationAutomatic];
             [showSpeakerlistBtn.imageView setTransform:CGAffineTransformMakeRotation(M_PI)];
             [CATransaction commit];
             
@@ -311,7 +312,7 @@
             }
             
             [CATransaction begin];
-            [devicelistTableView insertRowsAtIndexPaths:insertArray withRowAnimation:UITableViewRowAnimationBottom];
+            [devicelistTableView insertRowsAtIndexPaths:insertArray withRowAnimation:UITableViewRowAnimationAutomatic];
             [showSpeakerlistBtn.imageView setTransform:CGAffineTransformIdentity];
             [CATransaction commit];
         }
