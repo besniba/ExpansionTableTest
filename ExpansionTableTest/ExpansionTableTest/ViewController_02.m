@@ -93,10 +93,10 @@
         
         NSArray *speakerlist = [groupSpeakerlistDict objectForKey:group];
         
-        return [speakerlist count]+1;
+        return [speakerlist count]+2;
     }
     
-    return 1;
+    return 1+1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -104,6 +104,11 @@
     if (indexPath.row == 0) {
         
         return 60;
+    }
+    
+    if (indexPath.row == 3) {
+        
+        return 40;
     }
     
     return 30;
@@ -127,51 +132,6 @@
     
     return view;
 }
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    
-    NSLog(@"section:%ld", section);
-    
-    if (section%2 == 0) {
-        
-        return 30;
-    }
-    
-    return 1;
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    
-    if (section%2 == 0) {
-        
-        static NSString *indentifier = @"GrouplistFooterView";
-        
-        SpeakerGroupFooterView *footer = [[SpeakerGroupFooterView alloc] initWithReuseIdentifier:indentifier];
-        
-        if (!footer) {
-            
-            footer = [[SpeakerGroupFooterView alloc] init];
-        }
-        
-        [footer.showSpeakerlistBtn setTag:section+2000];
-        [footer.showSpeakerlistBtn addTarget:self
-                                      action:@selector(selectorOfShowDetailBtnPressed:)
-                            forControlEvents:UIControlEventTouchUpInside];
-        
-        
-        return footer;
-    }
-    else {
-        
-        UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
-        
-        [view setBackgroundColor:[UIColor whiteColor]];
-        
-        return view;
-        
-    }
-}
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
